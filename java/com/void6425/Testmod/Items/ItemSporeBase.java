@@ -22,17 +22,22 @@ public class ItemSporeBase extends Item {
 		setRegistryName(Name);
 	}
 
-	public EnumActionResult onItemUse(EntityPlayer playerin, World world,EnumHand hand,BlockPos pos, EnumFacing facing, float hitz, float hitX, float hitY){
-	
-		final ItemStack stack = playerin.getHeldItem(hand);
-	if (world.isAirBlock(pos)){
-		return EnumActionResult.FAIL;
-	}else 
-		 world.setBlockState(pos, Blocks.MYCELIUM.getDefaultState());
-		 stack.func_190920_e(stack.func_190916_E()-1);
-		 return EnumActionResult.SUCCESS;
-	
-	}
-	
-}
+	@Override
+	public EnumActionResult onItemUse(EntityPlayer playerIN, World worldIn, BlockPos pos, EnumHand hand,
+			EnumFacing facing, float hitZ, float hitX, float hitY) {
 
+		System.out.println("HI");
+		final ItemStack stack = playerIN.getHeldItem(hand);
+		if (worldIn.isAirBlock(pos)) {
+			return EnumActionResult.FAIL;
+		} else if (worldIn.getBlockState(pos) == Blocks.GRASS.getDefaultState()) {
+			worldIn.setBlockState(pos, Blocks.MYCELIUM.getDefaultState());
+			stack.func_190920_e(stack.func_190916_E() - 1);
+			return EnumActionResult.SUCCESS;
+		} else {
+			return EnumActionResult.FAIL;
+		}
+
+	}
+
+}
