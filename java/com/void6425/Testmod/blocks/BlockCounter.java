@@ -3,7 +3,7 @@ package com.void6425.Testmod.blocks;
 import javax.annotation.Nullable;
 
 import com.void6425.Testmod.registry.ModItemsRegistry;
-import com.void6425.Testmod.tiles.TileEntityChestPlus;
+import com.void6425.Testmod.tiles.TileEntityCounter;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,9 +17,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-public class BlockChestPlus extends BlockTileEntity<TileEntityChestPlus> {
+public class BlockCounter extends BlockTileEntity<TileEntityCounter> {
 	
-	public BlockChestPlus(){
+	public BlockCounter(){
 		super(Material.IRON);
 		setRegistryName("chestPlus");
 		setUnlocalizedName("chestPlus");		
@@ -27,9 +27,8 @@ public class BlockChestPlus extends BlockTileEntity<TileEntityChestPlus> {
 	@Override
 	public boolean onBlockActivated(World world,BlockPos pos,IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float HitY, float HitZ ){
 		
-		
 		if (!world.isRemote){
-			TileEntityChestPlus tile = getTileEntity(world, pos);
+			TileEntityCounter tile = getTileEntity(world, pos);
 			if (tile.getCount() == 1){
 				if(player.isSneaking()){
 					player.inventory.addItemStackToInventory((new ItemStack(ModItemsRegistry.Testitem, 1)));
@@ -54,14 +53,14 @@ public class BlockChestPlus extends BlockTileEntity<TileEntityChestPlus> {
 	}
 	
 	@Override
-	public Class<TileEntityChestPlus> getTileEntityClass() {
-		return TileEntityChestPlus.class;
+	public Class<TileEntityCounter> getTileEntityClass() {
+		return TileEntityCounter.class;
 	}
 	
 	@Nullable
 	@Override
-	public TileEntityChestPlus createTileEntity(World world, IBlockState state) {
-		return new TileEntityChestPlus();
+	public TileEntityCounter createTileEntity(World world, IBlockState state) {
+		return new TileEntityCounter();
 	}
 	
 	

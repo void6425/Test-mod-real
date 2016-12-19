@@ -3,7 +3,7 @@ package com.void6425.Testmod.tiles;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityChestPlus extends TileEntity {
+public class TileEntityCounter extends TileEntity {
 private int count;
 
 @Override

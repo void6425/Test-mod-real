@@ -1,7 +1,7 @@
 package com.void6425.Testmod.registry;
 
 import com.void6425.Testmod.Main;
-import com.void6425.Testmod.blocks.BlockChestPlus;
+import com.void6425.Testmod.blocks.BlockCounter;
 import com.void6425.Testmod.blocks.BlockTest;
 import com.void6425.Testmod.blocks.BlockTileEntity;
 
@@ -23,7 +23,7 @@ public class ModBlocksRegistry {
 			TestBlock = new BlockTest();
 			TestBlock.setCreativeTab(Main.creativetab);
 			
-			ChestPlus = new BlockChestPlus();
+			ChestPlus = new BlockCounter();
 			ChestPlus.setCreativeTab(Main.creativetab);
 		}
 		
@@ -33,7 +33,7 @@ public class ModBlocksRegistry {
 			registerBlock(TestBlock);
 			registerBlock(ChestPlus);
 		}
-		
+	
 		
 	
 		
